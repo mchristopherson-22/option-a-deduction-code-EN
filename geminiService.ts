@@ -3,7 +3,7 @@ import { GoogleGenAI, Type } from "@google/genai";
 import { DeductionCategory } from "./types";
 
 // Initializing GoogleGenAI client with the mandatory process.env.API_KEY directly
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+const ai = new GoogleGenAI({ apiKey: import.meta.env.VITE_GEMINI_API_KEY });
 
 export const generateUniqueCode = async (planName: string, providerName: string, category: string): Promise<string> => {
   const response = await ai.models.generateContent({
